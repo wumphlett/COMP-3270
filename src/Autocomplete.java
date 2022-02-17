@@ -26,7 +26,6 @@ public class Autocomplete {
          *         being equal. If no such index exists, return -1 instead.
          */
         public static int firstIndexOf(Term[] a, Term key, Comparator<Term> comparator) {
-            // TODO: Implement firstIndexOf
             int beg = 0, end = a.length-1;
             int index = -1;
             while (beg <= end) {
@@ -54,7 +53,6 @@ public class Autocomplete {
          *         being equal. If no such index exists, return -1 instead.
          */
         public static int lastIndexOf(Term[] a, Term key, Comparator<Term> comparator) {
-            // TODO: Implement lastIndexOf
             int beg = 0, end = a.length-1;
             int index = -1;
             while (beg <= end) {
@@ -392,28 +390,35 @@ public class Autocomplete {
 
             Node current = this.myRoot;
             var nodeQueue = new PriorityQueue<>(new Node.ReverseSubtreeMaxWeightComparator());
-            var wordList = new ArrayList<String>();
+            var nodeList = new ArrayList<Node>();
 
             if (prefix == "") {
-                return wordList;
+                return new ArrayList<String>();
             }
             for (char character : prefix.toCharArray()) {
                 if (current.children.containsKey(character)) {
                     current = current.getChild(character);
                 } else {
-                    return wordList;
+                    return new ArrayList<String>();
                 }
             }
 
             nodeQueue.add(current);
-            while (nodeQueue.size() > 0 && wordList.size() < k) {
+            while (nodeQueue.size() > 0 && nodeList.size() < k) {
                 current = nodeQueue.remove();
 
                 if (current.isWord) {
-                    wordList.add(current.myWord);
+                    nodeList.add(current);
                 }
 
                 nodeQueue.addAll(current.children.values());
+            }
+
+            nodeList.sort(null);
+
+            var wordList = new ArrayList<String>();
+            for (Node node : nodeList) {
+                wordList.add(node.myWord);
             }
             return wordList;
         }

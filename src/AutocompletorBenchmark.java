@@ -142,8 +142,7 @@ public class AutocompletorBenchmark {
         System.out.println("\n*****************************************************************");
         System.out.println("Printing Summary of Results ...");
         System.out.println("\n*****************************************************************");
-        System.out.printf("%-15s, %-15s, %-15s, %-15s", 
-                "prefix", "Brute", "Binary", "Trie\n");
+        System.out.printf("%-15s, %-15s, %-15s, %-15s", "prefix", "Brute", "Binary", "Trie\n");
         System.out.println("-------------------------------------------------------------------");
         for (int instanceNum = 0; instanceNum < 3; instanceNum++) { 
             for (String query : results.keySet()) {

@@ -63,22 +63,22 @@ public class Term implements Comparable<Term> {
          */
         public int compare(Term v, Term w) {
             // TODO: Implement compare
-        	int vLength = v.getWord().length();
-        	int wLength = w.getWord().length();
-        	if (vLength < r || wLength < r) {
-        		if (vLength == wLength) {
-        			return v.getWord().compareTo(w.getWord());
-        		}
-        		int min = Math.min(vLength, wLength);
-        		int result = v.getWord().substring(0, min).compareTo(w.getWord().substring(0, min));
-        		if (result == 0) {
-        			if (vLength < wLength) {
-        				return -1;
-        			}
-        			return 1;
-        		}
-        		return result;
-        	}
+            int vLength = v.getWord().length();
+            int wLength = w.getWord().length();
+            if (vLength < r || wLength < r) {
+                if (vLength == wLength) {
+                    return v.getWord().compareTo(w.getWord());
+                }
+                int min = Math.min(vLength, wLength);
+                int result = v.getWord().substring(0, min).compareTo(w.getWord().substring(0, min));
+                if (result == 0) {
+                    if (vLength < wLength) {
+                        return -1;
+                    }
+                    return 1;
+                }
+                return result;
+            }
             return v.getWord().substring(0, r).compareTo(w.getWord().substring(0, r));
         }
     }
