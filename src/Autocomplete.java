@@ -4,9 +4,6 @@ import java.util.PriorityQueue;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.Collections;
-import java.util.PriorityQueue;
 
 public class Autocomplete {
         /**
@@ -262,7 +259,6 @@ public class Autocomplete {
             if (prefix == null) throw new NullPointerException();
             int f = firstIndexOf(myTerms, new Term(prefix, 0) , new Term.PrefixOrder(prefix.length()));
             int l = lastIndexOf(myTerms, new Term(prefix, 0) , new Term.PrefixOrder(prefix.length()));
-            ArrayList<Term> found = new ArrayList<Term>();
             if (l < 0) return "";
             double maxWeight = myTerms[f].getWeight();
             int maxWeightIndex = f;
