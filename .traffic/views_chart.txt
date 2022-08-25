@@ -1,9 +1,3 @@
-# COMP 3270
-COMP 3270 Programs  
-Introduction to Algorithms  
-*full project outline can be read in project-description.pdf*
-
-```
 
     Total Views per Day from 2022-08-16 to 2022-08-25
 
@@ -27,4 +21,3 @@ Introduction to Algorithms
 
     Chart last updated - Thu Aug 25 08:55:26 2022 UTC
     
-```
